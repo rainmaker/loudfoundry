@@ -41,13 +41,13 @@ def record_loudness(loud)
   c.write(loud)
   c.close
 
-  if loud > File.read('max')
+  if loud > File.read('max') || File.read('max') == ''
     m = File.open('max', 'w')
     m.write(loud)
     m.close
   end
 
-  if loud < File.read('min')
+  if loud < File.read('min') || File.read('min') == ''
     m = File.open('min', 'w')
     m.write(loud)
     m.close
